@@ -1,3 +1,4 @@
 /node_modules
 /.idea/
 # Project exclude paths
+.gitignore
