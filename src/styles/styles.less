@@ -1,0 +1,483 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  color: #1D1A1A;
+  font-family: 'Ubuntu-Medium', sans-serif;
+}
+
+body._lock {
+  overflow: hidden;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  all: unset;
+}
+
+@xxl: 1400px;
+@xl: 1200px;
+@lg: 992px;
+@md: 768px;
+@sm: 576px;
+
+
+.wrapper {
+  display: grid;
+
+  .home {
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+
+    .swiper-wrapper {
+      .container-swiper() {
+        max-width: 1380px;
+        margin: 0 auto;
+        padding: 70px 15px 140px;
+        @media (max-width: @xxl) {
+          max-width: 1150px;
+        }
+        @media (max-width: @xl) {
+          max-width: 950px;
+        }
+        @media (max-width: @md) {
+          padding: 35px 15px 105px;
+        }
+      }
+
+      .swiper-background() {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: white;
+      }
+      .swiper-logo() {
+        .logo {
+          display: flex;
+          font-size: 22px;
+          @media (max-width: @md) {
+            justify-content: center;
+          }
+
+          img {
+            margin: 0 5px;
+          }
+
+          .logo-learn {
+            color: #FFFFFF;
+            font-family: 'Ubuntu-Light', sans-serif;
+          }
+        }
+      }
+
+      .newcomers {
+        background-image: url("../assets/img/slide1.svg");
+        @media (max-width: @md) {
+          background-image: url("../assets/img/slideSmall1.svg");
+        }
+        .swiper-background;
+
+        .container {
+          .container-swiper;
+          .swiper-logo;
+          .content-swiper;
+
+          .logo-online {
+            color: #0ED984;
+          }
+
+          button {
+            border: 2px dashed white;
+            background-color: transparent;
+            padding: 18px 50px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+
+            &:hover {
+              border: none;
+              background-color: #FFFFFF;
+              color: #0ED984;
+            }
+          }
+        }
+      }
+
+      .specialist {
+        background-image: url("../assets/img/slide2.svg");
+        @media (max-width: @md) {
+          background-image: url("../assets/img/slideSmall2.svg");
+        }
+        .swiper-background;
+
+        .container {
+          .container-swiper;
+          .swiper-logo;
+          .content-swiper;
+
+          .logo-online {
+            color: #3577F6;
+          }
+
+          button {
+            border: 2px dashed white;
+            background-color: transparent;
+            padding: 18px 50px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+
+            &:hover {
+              border: none;
+              background-color: #FFFFFF;
+              color: #3577F6;
+            }
+          }
+        }
+      }
+
+      .leaders {
+        background-image: url("../assets/img/slide3.svg");
+        @media (max-width: @md) {
+          background-image: url("../assets/img/slideSmall3.svg");
+        }
+        .swiper-background;
+
+        .container {
+          .container-swiper;
+          .swiper-logo;
+          .content-swiper;
+
+          .logo-online {
+            color: #D72DF3;
+          }
+
+          button {
+            border: 2px dashed white;
+            background-color: transparent;
+            padding: 18px 50px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            @media (max-width: @md) {
+              font-size: 24px;
+              padding: 18px 40px;
+            }
+
+            &:hover {
+              border: none;
+              background-color: #FFFFFF;
+              color: #D72DF3;
+            }
+          }
+        }
+      }
+
+      .content-swiper() {
+        .content {
+          margin: 195px 0 0 0;
+          @media (max-width: @lg) {
+            margin: 160px 0 0 0;
+          }
+
+          .content-title {
+            display: inline-block;
+            font-size: 20px;
+          }
+
+          h2 {
+            margin: 25px 0 45px;
+            font-size: 96px;
+            line-height: 110%;
+            @media (max-width: @lg) {
+              font-size: 60px;
+            }
+            @media (max-width: @md) {
+              font-size: 36px;
+              margin: 20px 0 15px;
+            }
+          }
+
+          .content-description {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 0 140px 0;
+            @media (max-width: @md) {
+              display: block;
+            }
+
+            p {
+              font-family: 'Ubuntu-Light';
+              line-height: 125%;
+              @media (max-width: @md) {
+                margin-bottom: 30px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .swiper-button() {
+      background-repeat: no-repeat;
+      width: 50px;
+      height: 50px;
+      @media (max-width: @lg) {
+        display: none;
+      }
+    }
+
+    .swiper-button-next {
+      .swiper-button;
+      background-position: right;
+      background-image: url("../assets/img/navigationRight.svg");
+
+      &:hover {
+        background-image: url("../assets/img/nextHover.svg");
+      }
+
+    }
+
+    .swiper-button-prev {
+      .swiper-button;
+      background-position: left;
+      background-image: url("../assets/img/navigationLeft.svg");
+
+      &:hover {
+        background-image: url("../assets/img/prevHover.svg");
+      }
+    }
+
+
+    .swiper-pagination {
+      width: auto;
+    }
+
+    .swiper-pagination-bullet {
+      background: url("../assets/img/Ellipse.svg") no-repeat center;
+      height: 50px;
+      width: 50px;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: url("../assets/img/worldwide.svg") no-repeat center;
+    }
+  }
+
+  .main {
+    .container {
+      max-width: 1630px;
+      padding: 0 15px;
+      margin: 190px auto 200px;
+      @media (max-width: @md) {
+        margin: 75px auto 75px;
+      }
+
+      .skills {
+        display: grid;
+        grid-template: 1fr / repeat(3, minmax(200px,500px));
+        gap: 50px;
+        @media (max-width: @md) {
+          grid-template: repeat(3, 1fr) / minmax(290px,350px);
+        }
+
+        h3 {
+          font-size: 36px;
+          line-height: 115%;
+          margin: 20px 0 30px;
+          @media (max-width: @lg) {
+            font-size: 26px;
+            margin: 20px 0 10px;
+          }
+        }
+
+        p {
+          color: #615D5D;
+          font-size: 20px;
+          line-height: 130%;
+          font-family: 'Ubuntu-Light';
+          @media (max-width: @lg) {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    background-color: #F3F3F3;
+
+    .footer-feedback {
+      .container {
+        max-width: 1630px;
+        padding: 0 15px;
+        margin: 190px auto 200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media (max-width: @lg) {
+          display: block;
+          margin: 75px auto 40px;
+        }
+
+        .feedback-text {
+          h2 {
+            font-size: 66px;
+            line-height: 110%;
+            margin-bottom: 30px;
+            @media (max-width: @md) {
+              font-size: 36px;
+              margin-bottom: 15px;
+            }
+          }
+
+          p {
+            font-size: 20px;
+            color: #615D5D;
+            font-family: 'Ubuntu-Light';
+            @media (max-width: @xl) {
+              margin-bottom: 30px;
+            }
+          }
+        }
+
+        .feedback-input {
+          .feedback__item {
+            display: grid;
+            grid-template: 1fr/ 275px 275px 220px;
+            gap: 25px;
+            padding-bottom: 40px;
+            @media (max-width: @xxl) {
+              grid-template-rows: 1fr 1fr 1fr;
+              grid-template-columns: minmax(290px, 400px);
+              gap: 15px;
+            }
+
+            input {
+              background-color: #FFFFFF;
+              padding: 20px;
+              color: #1D1A1A;
+              cursor: pointer;
+              font-size: 20px;
+
+              &::placeholder {
+                color: #C5C5C5;
+              }
+            }
+
+            button {
+              background-color: #138F5B;
+              padding: 30px 20px;
+              color: #FFFFFF;
+              font-size: 20px;
+              cursor: pointer;
+
+              &:hover {
+                background-color: #04643C;
+              }
+            }
+          }
+
+          p {
+            color: #C5C5C5;
+            font-family: 'Ubuntu-Light';
+            @media (max-width: @sm) {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    .footer-logo {
+      background-color: #1D1A1A;
+
+      .logo {
+        display: flex;
+        font-size: 22px;
+        @media (max-width: @md) {
+          justify-content: center;
+        }
+
+        .logo-online {
+          color: #0ED984;
+        }
+
+        img {
+          margin: 0 5px;
+        }
+
+        .logo-learn {
+          color: #FFFFFF;
+          font-family: 'Ubuntu-Light', sans-serif;
+        }
+      }
+
+      .container {
+        max-width: 1630px;
+        padding: 17px 15px 18px;
+        margin: 0 auto;
+      }
+    }
+
+  }
+}
+
